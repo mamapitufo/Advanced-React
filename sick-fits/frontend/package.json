@@ -65,6 +65,11 @@
       "wesbos"
     ]
   },
+  "prettier": {
+    "semi": true,
+    "printWidth": 120,
+    "singleQuote": true
+  },
   "jest": {
     "setupFilesAfterEnv": [
       "./jest.setup.js"
