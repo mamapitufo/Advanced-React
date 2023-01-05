@@ -7,7 +7,7 @@ const Logo = styled.h1`
   margin-left: 2rem;
   position: relative;
   z-index: 2;
-  background: #f00;
+  background: var(--red);
   transform: skew(-7deg);
   a {
     color: white;
@@ -19,7 +19,7 @@ const Logo = styled.h1`
 
 const HeaderStyled = styled.header`
   .bar {
-    border-bottom: 10px solid var(--black, #000);
+    border-bottom: 10px solid var(--black);
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
@@ -27,7 +27,7 @@ const HeaderStyled = styled.header`
   }
 
   .sub-bar {
-    border-bottom: 1px solid var(--black, #000);
+    border-bottom: 1px solid var(--black);
     display: grid;
     grid-template-columns: 1fr auto;
   }
