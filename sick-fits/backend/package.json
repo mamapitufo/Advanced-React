@@ -8,6 +8,11 @@
     "dev": "keystone-next",
     "seed-data": "keystone-next --seed-data"
   },
+  "prettier": {
+    "semi": true,
+    "printWidth": 120,
+    "singleQuote": true
+  },
   "eslintConfig": {
     "extends": "wesbos/typescript.js",
     "rules": {
