@@ -1,8 +1,5 @@
-export default function ProductsPage({ children }) {
-  return (
-    <div>
-      <h2>Products Page</h2>
-      {children}
-    </div>
-  );
+import Products from '../components/Products';
+
+export default function ProductsPage() {
+  return <Products />;
 }
