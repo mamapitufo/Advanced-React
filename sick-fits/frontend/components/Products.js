@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import ProductTile from './Product';
 
 const ALL_PRODUCTS_QUERY = gql`
-  # gql
   query ALL_PRODUCTS_QUERY {
     allProducts {
       id
@@ -29,7 +28,6 @@ const ProductsList = styled.div`
 
 export default function Products() {
   const { data, error, loading } = useQuery(ALL_PRODUCTS_QUERY);
-  console.log('data:', data, 'error:', error, 'loading:', loading);
 
   if (loading) {
     return <p>Loading...</p>;
