@@ -1,15 +1,25 @@
 import useForm from '../lib/useForm';
+import Form from './styles/Form';
 
 export default function CreateProduct() {
   const { inputs, setInputValue, resetForm, clearForm } = useForm({
+    image: '',
     name: '',
     price: 0,
     description: '',
   });
 
   return (
-    <div>
-      <form>
+    <Form
+      onSubmit={(e) => {
+        e.preventDefault();
+        console.log(inputs);
+      }}
+    >
+      <fieldset>
+        <label htmlFor="image">
+          <input type="file" id="image" name="image" onChange={setInputValue} required />
+        </label>
         <label htmlFor="name">
           Name
           <input type="text" id="name" name="name" placeholder="Name" value={inputs.name} onChange={setInputValue} />
@@ -27,8 +37,7 @@ export default function CreateProduct() {
         </label>
         <label htmlFor="description">
           Description
-          <input
-            type="text"
+          <textarea
             id="description"
             name="description"
             placeholder="Description"
@@ -36,13 +45,8 @@ export default function CreateProduct() {
             onChange={setInputValue}
           />
         </label>
-        <button type="button" onClick={clearForm}>
-          Clear Data
-        </button>
-        <button type="button" onClick={resetForm}>
-          Reset
-        </button>
-      </form>
-    </div>
+        <button type="submit">+ Add Product</button>
+      </fieldset>
+    </Form>
   );
 }
