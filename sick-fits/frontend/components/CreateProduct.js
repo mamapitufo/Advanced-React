@@ -7,7 +7,12 @@ import { ALL_PRODUCTS_QUERY } from './Products';
 import Form from './styles/Form';
 
 const CREATE_PRODUCT_MUTATION = gql`
-  mutation CREATE_PRODUCT_MUTATION($name: String!, $price: Int!, $description: String!, $image: Upload) {
+  mutation CREATE_PRODUCT_MUTATION(
+    $name: String!
+    $price: Int!
+    $description: String!
+    $image: Upload
+  ) {
     createProduct(
       data: {
         name: $name
@@ -32,10 +37,13 @@ export default function CreateProduct() {
     description: '',
   });
 
-  const [createProduct, { loading, error, data }] = useMutation(CREATE_PRODUCT_MUTATION, {
-    variables: inputs,
-    refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
-  });
+  const [createProduct, { loading, error }] = useMutation(
+    CREATE_PRODUCT_MUTATION,
+    {
+      variables: inputs,
+      refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
+    }
+  );
 
   return (
     <Form
@@ -49,11 +57,24 @@ export default function CreateProduct() {
       <DisplayError error={error} />
       <fieldset disabled={loading} aria-busy={loading}>
         <label htmlFor="image">
-          <input type="file" id="image" name="image" onChange={setInputValue} required />
+          <input
+            type="file"
+            id="image"
+            name="image"
+            onChange={setInputValue}
+            required
+          />
         </label>
         <label htmlFor="name">
           Name
-          <input type="text" id="name" name="name" placeholder="Name" value={inputs.name} onChange={setInputValue} />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            value={inputs.name}
+            onChange={setInputValue}
+          />
         </label>
         <label htmlFor="name">
           Price
